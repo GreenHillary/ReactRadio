@@ -50,8 +50,12 @@ function App() {
         <title>{titleString}</title>
       </Helmet>
       <header className="App-header">
-        <NavigationBar show={showName} showUrl={showUrl} currentTrack={currentTrack?currentTrack:''} DJName={DJName}/>
-        <FullPlaylist tracklist={tracklist}/>
+        <NavigationBar
+          show={showName} showUrl={showUrl} currentTrack={currentTrack?currentTrack:''} DJName={DJName}
+        />
+        <FullPlaylist
+          tracklist={tracklist} currentTrack={currentTrack?currentTrack:''}
+        />
       </header>
     </div>
   );
