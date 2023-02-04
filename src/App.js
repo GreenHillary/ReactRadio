@@ -4,12 +4,18 @@ import NavigationBar from "./components/NavigationBar/NavigationBar";
 import FullPlaylist from "./components/FullPlaylist/FullPlaylist";
 
 function App() {
-
+  const [showName, setShowName] = useState();
+  const [showUrl, setShowUrl] = useState();
+  const [currentTrack, setCurrentTrack] = useState();
   const [tracklist, setTracklist] = useState([]);
 
   const getTracklist = async () => {
     try {
       let tracklistArray = await axios.get("https://api.composer.nprstations.org/v1/widget/50ef24ebe1c8a1369593d032/tracks?format=json&limit=20");
+      setShowUrl(tracklistArray.data.onNow.program.program_link);
+      setShowName(tracklistArray.data.onNow.program.name);
+      setCurrentTrack(tracklistArray.data.onNow.song);
+      setTracklist(tracklistArray.data.tracklist.results);
       tracklistArray = tracklistArray.data.tracklist.results;
       setTracklist(tracklistArray);
     } catch (err) {
@@ -28,7 +34,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <NavigationBar />
+        <NavigationBar show={showName} showUrl={showUrl} currentTrack={currentTrack?currentTrack:''}/>
         <FullPlaylist tracklist={tracklist}/>
       </header>
     </div>
