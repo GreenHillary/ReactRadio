@@ -2,14 +2,16 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Offcanvas from 'react-bootstrap/Offcanvas';
+import PlayerComponent from '../PlayerComponent/PlayerComponent';
 
 function NavigationBar(props) {
   return (
     <>
       {[false].map((expand) => (
-        <Navbar key={expand} bg="light" expand={expand} className="shadow">
+        <Navbar key={expand} bg="light" expand={expand} className="shadow" sticky="top">
           <Container fluid>
             <Navbar.Brand href="#">KUTX Radio - {props.show}</Navbar.Brand>
+            <span><PlayerComponent /></span>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-${expand}`}
