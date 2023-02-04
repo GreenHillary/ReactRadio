@@ -4,7 +4,7 @@ function FullPlaylist(props) {
   return (
     <Accordion flush>
       
-            <div key='currentTrack' className="border-bottom">
+            <div key='currentTrack' className={props.currentTrack ? 'border-bottom current-track': 'd-none'}>
                 <Accordion.Item eventKey={'currentTrack'}>
                 <Accordion.Header>{props.currentTrack.artistName} - {props.currentTrack.trackName}</Accordion.Header>
                 <Accordion.Body>

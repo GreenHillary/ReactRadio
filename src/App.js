@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import axios from 'axios';
 import NavigationBar from "./components/NavigationBar/NavigationBar";
 import FullPlaylist from "./components/FullPlaylist/FullPlaylist";
-import {Helmet} from "react-helmet";
 
 function App() {
   const [showName, setShowName] = useState();
@@ -46,9 +45,7 @@ function App() {
 
   return (
     <div className="App">
-      <Helmet>
-        <title>{titleString}</title>
-      </Helmet>
+        <title>{titleString?titleString: 'KUTX'}</title>
       <header className="App-header">
         <NavigationBar
           show={showName} showUrl={showUrl} currentTrack={currentTrack?currentTrack:''} DJName={DJName}
