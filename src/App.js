@@ -9,6 +9,7 @@ function App() {
   const [showUrl, setShowUrl] = useState();
   const [currentTrack, setCurrentTrack] = useState();
   const [titleString, setTitleString] = useState();
+  const [DJName, setDJName] = useState();
   const [tracklist, setTracklist] = useState([]);
 
   const getTracklist = async () => {
@@ -19,7 +20,8 @@ function App() {
       setCurrentTrack(tracklistArray.data.onNow.song);
 
       if (tracklistArray.data.onNow.song) {
-        setTitleString(tracklistArray.data.onNow.song.artistName + " - " + tracklistArray.data.onNow.song.trackName); 
+        setTitleString(tracklistArray.data.onNow.song.artistName + " - " + tracklistArray.data.onNow.song.trackName);
+        setDJName(tracklistArray.data.onNow.program.hosts[0].name);
       } else {
         setTitleString(tracklistArray.data.tracklist.results[0].song.artistName + " - " + tracklistArray.data.tracklist.results[0].song.trackName);
       }
@@ -46,7 +48,7 @@ function App() {
         <title>{titleString}</title>
       </Helmet>
       <header className="App-header">
-        <NavigationBar show={showName} showUrl={showUrl} currentTrack={currentTrack?currentTrack:''}/>
+        <NavigationBar show={showName} showUrl={showUrl} currentTrack={currentTrack?currentTrack:''} DJName={DJName}/>
         <FullPlaylist tracklist={tracklist}/>
       </header>
     </div>
