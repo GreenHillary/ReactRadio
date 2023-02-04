@@ -35,7 +35,6 @@ function NavigationBar(props) {
                   <div className='pt-3'>
                     <p>Artist: {props.currentTrack.artistName}</p>
                     <p>Song: {props.currentTrack.trackName}</p>
-                    <p>Release Date: {props.currentTrack.releaseDate}</p>
                   </div>
                 </Nav>
               </Offcanvas.Body>
