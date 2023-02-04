@@ -10,7 +10,7 @@ function NavigationBar(props) {
       {[false].map((expand) => (
         <Navbar key={expand} bg="light" expand={expand} className="shadow" sticky="top">
           <Container fluid>
-            <Navbar.Brand href="#">KUTX Radio - {props.show} - {props.DJName}</Navbar.Brand>
+            <Navbar.Brand href="#">KUTX Radio{props.show && ' - ' + props.show}{props.DJName && ' - ' + props.DJName}</Navbar.Brand>
             <span><PlayerComponent /></span>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas
@@ -28,7 +28,7 @@ function NavigationBar(props) {
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
                   <h2>Currently Playing</h2>
-                  {props.currentTrack.artistName
+                  {props.currentTrack.artworkUrl100
                     ? <img src={props.currentTrack.artworkUrl100} alt="song cover" />
                     : <img src="https://place-puppy.com/240x240" alt="song cover" />
                   }

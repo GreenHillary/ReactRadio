@@ -21,7 +21,9 @@ function App() {
 
       if (tracklistArray.data.onNow.song) {
         setTitleString(tracklistArray.data.onNow.song.artistName + " - " + tracklistArray.data.onNow.song.trackName);
-        setDJName(tracklistArray.data.onNow.program.hosts[0].name);
+        if(tracklistArray.data.onNow.program.hosts[0]) {
+          setDJName(tracklistArray.data.onNow.program.hosts[0].name);
+        }
       } else {
         setTitleString(tracklistArray.data.tracklist.results[0].song.artistName + " - " + tracklistArray.data.tracklist.results[0].song.trackName);
       }
