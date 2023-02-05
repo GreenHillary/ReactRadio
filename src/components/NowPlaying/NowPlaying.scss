@@ -1,0 +1,14 @@
+#nowPlaying {
+    background-color: rgb(48, 53, 145);
+    animation: color 60s infinite linear;
+    @keyframes color {
+        0% {background: #33CCCC;}
+        20% {background: #f5c66f;}
+        40% {background: #bb85ee;}
+        60% {background: #d8df98;}
+        80% {background: #a2a1f1;}
+        100% {background: #91f791;}
+
+
+    }
+}
