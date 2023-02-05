@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from 'axios';
 import NavigationBar from "./components/NavigationBar/NavigationBar";
 import FullPlaylist from "./components/FullPlaylist/FullPlaylist";
+import NowPlaying from "./components/NowPlaying/NowPlaying"
 
 function App() {
   const [showName, setShowName] = useState();
@@ -35,6 +36,8 @@ function App() {
     }
   };
 
+ 
+
   useEffect(() => {
     getTracklist();
     const interval = setInterval(() => {
@@ -43,12 +46,30 @@ function App() {
     return () => clearInterval(interval);
   }, []);
 
+  const changePageTitle = async () => {
+    document.querySelector('title').textContent = titleString;
+  }
+  changePageTitle();
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      changePageTitle();
+    }, 10000);
+    return () => clearInterval(interval);
+  }, );
+
   return (
     <div className="App">
         <title>{titleString?titleString: 'KUTX'}</title>
       <header className="App-header">
         <NavigationBar
-          show={showName} showUrl={showUrl} currentTrack={currentTrack?currentTrack:''} DJName={DJName}
+          currentTrack={currentTrack?currentTrack:''}
+        />
+        <NowPlaying
+          currentTrack={currentTrack?currentTrack:''}
+          tracklist={tracklist}
+          show={showName}
+          DJName={DJName}
         />
         <FullPlaylist
           tracklist={tracklist} currentTrack={currentTrack?currentTrack:''}
