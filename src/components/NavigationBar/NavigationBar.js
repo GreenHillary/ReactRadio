@@ -26,15 +26,17 @@ function NavigationBar(props) {
                 <a href={props.showUrl} target="_blank" rel="noreferrer">{props.DJName}</a>
               </Offcanvas.Header>
               <Offcanvas.Body>
-                <Nav className="justify-content-end flex-grow-1 pe-3">
-                  <h2>Currently Playing</h2>
+                <Nav className="justify-content-end flex-grow-1 pe-3 text-center w-75 mx-auto">
+                  <h2>Now Playing</h2>
                   {props.currentTrack.artworkUrl100
-                    ? <img src={props.currentTrack.artworkUrl100} alt="song cover" />
-                    : <img src="https://place-puppy.com/240x240" alt="song cover" />
+                    ? <img src={props.currentTrack.artworkUrl100} alt="song cover" width="100" className='mx-auto' />
+                    : <img src="https://place-puppy.com/100x100" alt="song cover" width="100" className='mx-auto' />
                   }
                   <div className='pt-3'>
-                    <p>Artist: {props.currentTrack.artistName}</p>
-                    <p>Song: {props.currentTrack.trackName}</p>
+                    <h5>Artist:</h5>
+                    <p>{props.currentTrack.artistName}</p>
+                    <h5>Song:</h5>
+                    <p>{props.currentTrack.trackName}</p>
                   </div>
                 </Nav>
               </Offcanvas.Body>
