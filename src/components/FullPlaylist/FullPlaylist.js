@@ -21,8 +21,17 @@ function FullPlaylist(props) {
               </div>
               <div className='col col-12 col-md-4' >
                 <p>Start: {props.currentTrack._start_time}</p>
-                <p>Duration: {props.currentTrack._duration/60000}</p>
               </div>
+            </div>
+            <div className='row'>
+              <span className='text-center'>
+                <a href={'https://www.google.com/search?q=' + props.currentTrack.artistName + ' + ' + props.currentTrack.trackName} target='none' className='m-3'>Google</a>
+                <a href={'https://www.youtube.com/results?search_query=' + props.currentTrack.artistName + ' + ' + props.currentTrack.trackName} target='none' className='m-3'>YouTube</a>
+                <a href={'https://en.wikipedia.org/wiki/Special:Search?go=Go&search=' + props.currentTrack.artistName + ' + ' + props.currentTrack.trackName} target='none' className='m-3'>Wikipedia</a>
+                <a href={'https://www.discogs.com/search/?q=' + props.currentTrack.artistName + ' + ' + props.currentTrack.trackName} target='none' className='m-3'>Discogs</a>
+                <a href={'https://www.whosampled.com/search/?q=' + props.currentTrack.artistName + ' + ' + props.currentTrack.trackName} target='none' className='m-3'>Who Sampled</a>
+                <a href={'https://search.azlyrics.com/search.php?q=' + props.currentTrack.artistName + ' + ' + props.currentTrack.trackName} target='none' className='m-3'>A-Z Lyrics</a>
+              </span>
             </div>
           </Accordion.Body>
         </Accordion.Item>
@@ -45,6 +54,16 @@ function FullPlaylist(props) {
                   <p>Song: {track.song.trackName}</p>
                   <p>Collection: {track.song.collectionName}</p>
                   <p>Start: {track.song._start_time}</p>
+                  <div className='row'>
+                    <span className='text-center'>
+                      <a href={'https://www.google.com/search?q=' + track.song.artistName + '+' + track.song.trackName} target='none' className='m-3'>Google</a>
+                      <a href={'https://www.youtube.com/results?search_query=' + track.song.artistName + '+' + track.song.trackName} target='none' className='m-3'>YouTube</a>
+                      <a href={'https://en.wikipedia.org/wiki/Special:Search?go=Go&search=' + track.song.artistName + '+' + track.song.trackName} target='none' className='m-3'>Wikipedia</a>
+                      <a href={'https://www.discogs.com/search/?q=' + track.song.artistName + '+' + track.song.trackName} target='none' className='m-3'>Discogs</a>
+                      <a href={'https://www.whosampled.com/search/?q=' + track.song.artistName + '+' + track.song.trackName} target='none' className='m-3'>Who Sampled</a>
+                      <a href={'https://search.azlyrics.com/search.php?q=' + track.song.artistName + '+' + track.song.trackName} target='none' className='m-3'>A-Z Lyrics</a>
+                    </span>
+                  </div>
                 </div>
               </div>
             </Accordion.Body>
