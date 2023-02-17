@@ -1,14 +1,16 @@
 #nowPlaying {
-    background-color: rgb(48, 53, 145);
-    animation: color 60s infinite linear;
-    @keyframes color {
+    //background-color: rgb(48, 53, 145);
+    background-image: linear-gradient(to right, red , yellow);
+    background-size: cover;
 
-        0% {background: #bb85ee;}
-        20% {background: #f5c66f;}
-        40% {background: #d8df98;}
-        60% {background: #91f791;}
-        80% {background: #33CCCC;}
-        100% {background: #a2a1f1;}
-
-    }
+    //Color changing background color option below
+    //animation: color 60s infinite linear;
+    //@keyframes color {
+        //0% {background: #bb85ee;}
+        //20% {background: #f5c66f;}
+        //40% {background: #d8df98;}
+        //60% {background: #91f791;}
+        //80% {background: #33CCCC;}
+        //100% {background: #a2a1f1;}
+    //}
 }
